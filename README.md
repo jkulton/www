@@ -6,10 +6,10 @@ A web speed dial in your terminal
 
 ## Install
 
-Before installing please have Go installed and `$GOPATH/bin` in your `$PATH`
+Before installing please have Go installed and `$GOPATH/bin` in your `$PATH`, then install with `go install`.
 
-```sh
-go install https://github.com/jkulton/www
+```console
+$ go install github.com/jkulton/www
 ```
 
 ## Set up
@@ -29,7 +29,7 @@ Example .www file:
 
 ## Usage
 
-```sh
+```console
 $ www <bookmark>
 
 $ www gh # (opens https://github.com/ in the default browser)
