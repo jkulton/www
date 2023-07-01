@@ -2,7 +2,7 @@
 
 # www
 
-A web speed dial in your terminal
+A speed dial for your browser, in your terminal
 
 ## Install
 

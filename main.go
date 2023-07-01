@@ -18,7 +18,7 @@ const HELP string = ` _       _ __ _
 | |/ |/ / / /
 |__/|__/_/_/
 
-www, a web speed dial in your terminal
+www, a speed dial for your browser, in your terminal
 https://github.com/jkulton/www
 
 Usage: www <bookmark>
