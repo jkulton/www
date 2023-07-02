@@ -41,27 +41,28 @@ func getBookmarks() (map[string]string, error) {
 
 	home, err := os.UserHomeDir()
 	if err != nil {
-		return nil, fmt.Errorf("Error trying to access home directory: %w", err)
+		return nil, fmt.Errorf("error trying to access home directory: %w", err)
 	}
 
 	path := filepath.Join(home, FILENAME)
 	file, err := os.Open(path)
-	defer file.Close()
 
 	if err != nil {
-		return nil, fmt.Errorf("Error trying to open %s file: %w", FILENAME, err)
+		return nil, fmt.Errorf("error trying to open %s file: %w", FILENAME, err)
 	}
+
+	defer file.Close()
 
 	fileContent, err := ioutil.ReadAll(file)
 	if err != nil {
-		return nil, fmt.Errorf("Error trying to read from %s file: %w", FILENAME, err)
+		return nil, fmt.Errorf("error trying to read from %s file: %w", FILENAME, err)
 	}
 
 	// TODO[jkulton]: Is json.Unmarshal performant? Use something other than JSON? (toml?)
 	err = json.Unmarshal(fileContent, &bookmarks)
 
 	if err != nil {
-		return nil, fmt.Errorf("Error parsing JSON from %s file: %w", FILENAME, err)
+		return nil, fmt.Errorf("error parsing JSON from %s file: %w", FILENAME, err)
 	}
 
 	return bookmarks, nil
@@ -72,7 +73,7 @@ func main() {
 	bookmarks, err := getBookmarks()
 
 	if err != nil {
-		fmt.Println("Error looking up bookmark: ", err)
+		fmt.Println("error looking up bookmarks: ", err)
 		os.Exit(1)
 	}
 
@@ -88,7 +89,7 @@ func main() {
 	url, found := bookmarks[keyword]
 
 	if !found {
-		fmt.Printf("Error: bookmark '%s' not found, please ensure '%s' is set in your %s file\n", keyword, keyword, FILENAME)
+		fmt.Printf("Bookmark '%s' not found, please ensure '%s' is set in your %s file\n", keyword, keyword, FILENAME)
 		os.Exit(1)
 	}
 
