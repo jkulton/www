@@ -4,7 +4,7 @@
 
 A speed dial for your browser, in your terminal
 
-## Install and Usage
+## Install and Use
 
 The easiest way to install `www` is with `go install`. Please have Go installed and `$GOPATH/bin` in your `$PATH`
 
