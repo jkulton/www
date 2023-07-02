@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 	"path/filepath"
 
@@ -24,8 +24,8 @@ https://github.com/jkulton/www
 Usage: www <bookmark>
 
 Set up:
-  1. Create a JSON file titled '.www' in your home directory
-  2. Add a single object to the file, where each key is the name of your bookmark, and each value is the URL
+  1. Create a file titled '.www' in your home directory
+  2. Add a single JSON object to the file, where each key is the name of a bookmark, and each value is the URL
   3. Execute www with the name of your bookmark
 
 Example .www file:
@@ -39,21 +39,21 @@ func getBookmarks() (map[string]string, error) {
 
 	home, err := os.UserHomeDir()
 	if err != nil {
-		return nil, fmt.Errorf("error trying to access home directory: %w", err)
+		return nil, fmt.Errorf("error accessing home directory: %w", err)
 	}
 
 	path := filepath.Join(home, FILENAME)
 	file, err := os.Open(path)
 
 	if err != nil {
-		return nil, fmt.Errorf("error trying to open %s file: %w", FILENAME, err)
+		return nil, fmt.Errorf("error opening %s file: %w", FILENAME, err)
 	}
 
 	defer file.Close()
 
-	fileContent, err := ioutil.ReadAll(file)
+	fileContent, err := io.ReadAll(file)
 	if err != nil {
-		return nil, fmt.Errorf("error trying to read from %s file: %w", FILENAME, err)
+		return nil, fmt.Errorf("error reading from %s file: %w", FILENAME, err)
 	}
 
 	// TODO[jkulton]: Is json.Unmarshal performant? Use something other than JSON? (toml?)
@@ -71,7 +71,7 @@ func main() {
 	bookmarks, err := getBookmarks()
 
 	if err != nil {
-		fmt.Println("error looking up bookmarks: ", err)
+		fmt.Println("Failed to load bookmarks: ", err)
 		os.Exit(1)
 	}
 
