@@ -15,21 +15,15 @@ The easiest way to install `www` is with `go install`. Please have Go installed 
 go install github.com/jkulton/www
 ```
 
-2. Create a `.www` file in your home directory
+2. Create a `.www` file in your home directory, add a JSON object to the file. Each key should be the name of your bookmark, and each value the URL.
 
 ```sh
-touch ~/.www
+echo '{\n  "gh": "https://github.com/"\n}' > ~/.www
 ```
 
-3. Add a JSON object to the file. Each key should be the name of your bookmark, and each value the URL.
-
-```sh
-echo '{\n  "gh": "https://github.com/"\n}' >> ~/.www
-```
-
-4. Execute `www` with the name of a bookmark
+3. Execute `www` with the name of a bookmark
 ```sh
 www gh # opens default browser to https://github.com/
 ```
 
-5. Define more bookmarks in `~/.www`!
+4. Define more bookmarks in `~/.www`!
