@@ -30,9 +30,7 @@ Set up:
 
 Example .www file:
 {
-  "cf": "https://dash.cloudflare.com",
-  "gh": "https://github.com/",
-  "gm": "https://gmail.com"
+  "gh": "https://github.com/"
 }
 `
 
