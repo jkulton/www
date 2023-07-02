@@ -21,7 +21,7 @@ go install github.com/jkulton/www
 touch ~/.www
 ```
 
-3. Add a JSON object to the file. Each key should be the name of your bookmark, and each value should be the URL.
+3. Add a JSON object to the file. Each key should be the name of your bookmark, and each value the URL.
 
 ```sh
 echo '{\n  "gh": "https://github.com/"\n}' >> ~/.www
