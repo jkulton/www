@@ -8,7 +8,7 @@ A speed dial for your browser, in your terminal
 
 The easiest way to install `www` is with `go install`. Please have Go installed and `$GOPATH/bin` in your `$PATH`
 
-(If you'd rather build the binary manually you can clone the repo and `go build` directly)
+(If you'd rather build manually please clone the repo and `go build` directly)
 
 1. Install
 ```sh
