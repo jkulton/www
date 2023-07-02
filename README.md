@@ -4,39 +4,32 @@
 
 A speed dial for your browser, in your terminal
 
-## Install
+## Install and Usage
 
-Before installing please have Go installed and `$GOPATH/bin` in your `$PATH`, then install with `go install`.
+The easiest way to install `www` is with `go install`. Please have Go installed and `$GOPATH/bin` in your `$PATH`
 
-```console
-$ go install github.com/jkulton/www
+(However, if you'd rather build the binary manually you can clone the repo and `go build` directly)
+
+1. Install
+```sh
+go install github.com/jkulton/www
 ```
 
-## Set up
+2. Create a `.www` file in your home directory
 
-1. Create a JSON file titled '.www' in your home directory
-2. Add a single object to the file, where each key is the name of your bookmark, and each value is the URL
-3. Execute `www` with the name of a bookmark
-
-Example .www file:
-```
-{
-  "cf": "https://dash.cloudflare.com",
-  "gh": "https://github.com/",
-  "gm": "https://gmail.com"
-}
+```sh
+touch ~/.www
 ```
 
-## Usage
+3. Add a JSON object to the file. Each key should be the name of your bookmark, and each value should be the URL.
 
-```console
-$ www <bookmark>
-
-$ www gh # (opens https://github.com/ in the default browser)
+```sh
+echo '{\n  "gh": "https://github.com/"\n}' >> ~/.www
 ```
 
----
+4. Execute `www` with the name of a bookmark
+```sh
+www gh # opens default browser to https://github.com/
+```
 
-### Build binary manually
-
-If you'd rather install manually, clone the repository. Learn more about building binaries with `go build` [here](https://pkg.go.dev/cmd/go#hdr-Compile_packages_and_dependencies). Once you build the binary, ensure it is accessible from your `$PATH`.# www
+5. Define more bookmarks in `~/.www`!
