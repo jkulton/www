@@ -12,7 +12,7 @@ The easiest way to install `www` is with `go install`. Please have Go installed 
 
 1. Install
 ```sh
-go install github.com/jkulton/www
+go install github.com/jkulton/www@latest
 ```
 
 2. Create a `.www` file in your home directory, add a JSON object to the file. Each key should be the name of your bookmark, and each value the URL.
