@@ -91,5 +91,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	browser.OpenURL(url)
+	err = browser.OpenURL(url)
+
+	if err != nil {
+		fmt.Printf("Failed to open URL '%s' in browser: %v", url, err)
+		os.Exit(1)
+	}
 }
